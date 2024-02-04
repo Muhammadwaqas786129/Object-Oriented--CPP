@@ -1,66 +1,65 @@
 #include <iostream>
 using namespace std;
-class book 
+class result
 {
-	private:
-	int bookID,pages;
-	float price;
+	private: 
+	int rollno,marks[3];
+	char name[50];
 	public:
-	void get()
+	void input()
 	{
-		cout<<"enter your book ID";
-		cin>>bookID;
-		cout<<"enter your pages ";
-		cin>>pages;
-		cout<<"enter your price";
-		cin>>price;
+		cout<<"enter your rollno:";
+		cin>>rollno;
+		cout<<"enter your name:";
+		cin>>name;
+		for(int i=0;i<3;i++)
+		{
+			cout<<"enter your marks["<<i<<"]:";
+			cin>>marks[i];
+			
+			
+			
+			
+		}
 		
-		
-		
-		
-		
-		}	
+	}
 	void show()
 	{
-		cout<<"book ID="<<bookID<<endl;
-		cout<<"pages="<<pages<<endl;
-		cout<<"price="<<price<<endl;
-		
-		
-		
-		
-		
-		
+		cout<<"rollno="<<rollno<<endl;
+		cout<<"name="<<name<<endl;
+		for(int i=0;i<3;i++)
+		cout<<"marks["<<i<<"]:"<<marks[i]<<endl;
 		
 	}
-	void set(int id,int pg,float pr)
+	int total()
 	{
-		bookID=id;
-		pages=pg;
-		price=pr;
-		
-		
-		
-		
-		
+		int t=0;
+		for(int i=0;i<3;i++)
+		t=t+marks[i];
+		return t;
 		
 	}
-	int getPrice()
+	float avg()
 	{
-		return price;
-	}
-	
-};
+		int t=0;
+		for(int i=0;i<3;i++)
+		t=t+marks[i];
+		return t/3.0;
+		
+		
+}
 
+};
 int main()
 {
-	book b1,b2;
-	b1.get();
-	b2.set(2,350,150.70);
-	cout<<"the most costly book is as follows:"<<endl;
-	if(b1.getPrice() < b2.getPrice() )
-	b1.show();
-	else
-	b2.show(); 
-	 
+	result r;
+	r.input();
+	r.show();
+	cout<<"the total marks is="<<r.total()<<endl;
+	cout<<"the average of the marks is="<<r.avg() <<endl;
+
+	
+	
 }
+	 
+
